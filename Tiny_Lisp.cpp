@@ -60,6 +60,8 @@ void load_script(const string& filename, bool show_script = false)
     }
 }
 
+//Texto de ejemplo: Helloworld.txt
+
 int main() {
     string filename;
     cout << "Archivo: ";
