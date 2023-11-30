@@ -49,6 +49,16 @@ int main() {
     string filename;
     cout << "Archivo: ";
     cin >> filename;
-    load_script(filename, true);
+
+    try {
+        load_script(filename, true);
+    } catch (const runtime_error& e) {
+        cerr << "Error: " << e.what() << endl;
+    } catch (const ifstream::failure& e) {
+        cerr << "Error de lectura del archivo: " << e.what() << endl;
+    } catch (...) {
+        cerr << "Error desconocido" << endl;
+    }
+
     return 0;
 }
