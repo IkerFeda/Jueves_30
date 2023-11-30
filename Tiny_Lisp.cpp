@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stdexcept>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ struct ColorConsole
 
 struct ConsoleBox
 {
-    void new_text() {/*...*/}
+    void new_text() {}
     void set_text(const string &text) { cout << text << endl; }
 };
 
@@ -20,10 +21,9 @@ void load_script(const string& filename, bool show_script = false)
 {
     string script;
     ifstream file(filename, ios::binary);
-    if (!file.is_open())
+    if (!file)
     {
-        cerr << "Error de apertura de " << filename << endl;
-        return;
+        throw runtime_error("Error de apertura de " + filename);
     }
 
     char buf[4001];
