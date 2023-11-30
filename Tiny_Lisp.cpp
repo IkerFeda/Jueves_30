@@ -60,9 +60,13 @@ void load_script(const string& filename, bool show_script = false)
     }
 }
 
-//Texto de ejemplo: Helloworld.txt
+void load_script(const char* filename, bool show_script = false)
+{
+    load_script(string(filename), show_script);
+}
 
-int main() {
+void load_script()
+{
     string filename;
     cout << "Archivo: ";
     cin >> filename;
@@ -76,6 +80,10 @@ int main() {
     } catch (...) {
         cerr << "Error desconocido" << endl;
     }
+}
+
+int main() {
+    load_script();
 
     return 0;
 }

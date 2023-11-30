@@ -49,12 +49,6 @@ cmake_ninja_workdir = C$:/Users/ikerf/CLionProjects/Jueves_30/cmake-build-debug/
 
 build cmake_object_order_depends_target_Jueves_30: phony || CMakeFiles/Jueves_30.dir
 
-build CMakeFiles/Jueves_30.dir/Tiny_Lisp.cpp.obj: CXX_COMPILER__Jueves_30_unscanned_Debug C$:/Users/ikerf/CLionProjects/Jueves_30/Tiny_Lisp.cpp || cmake_object_order_depends_target_Jueves_30
-  DEP_FILE = CMakeFiles\Jueves_30.dir\Tiny_Lisp.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\Jueves_30.dir
-  OBJECT_FILE_DIR = CMakeFiles\Jueves_30.dir
-
 build CMakeFiles/Jueves_30.dir/VersionANSI.cpp.obj: CXX_COMPILER__Jueves_30_unscanned_Debug C$:/Users/ikerf/CLionProjects/Jueves_30/VersionANSI.cpp || cmake_object_order_depends_target_Jueves_30
   DEP_FILE = CMakeFiles\Jueves_30.dir\VersionANSI.cpp.obj.d
   FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
@@ -69,7 +63,7 @@ build CMakeFiles/Jueves_30.dir/VersionANSI.cpp.obj: CXX_COMPILER__Jueves_30_unsc
 #############################################
 # Link the executable Jueves_30.exe
 
-build Jueves_30.exe: CXX_EXECUTABLE_LINKER__Jueves_30_Debug CMakeFiles/Jueves_30.dir/Tiny_Lisp.cpp.obj CMakeFiles/Jueves_30.dir/VersionANSI.cpp.obj
+build Jueves_30.exe: CXX_EXECUTABLE_LINKER__Jueves_30_Debug CMakeFiles/Jueves_30.dir/VersionANSI.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Jueves_30.dir

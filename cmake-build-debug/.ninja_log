@@ -1,3 +1,10 @@
 # ninja log v5
-3	880	7230455467081507	CMakeFiles/Jueves_30.dir/Tiny_Lisp.cpp.obj	79d4b3801a7c90aa
 880	1068	7230455468936456	Jueves_30.exe	53cff4aff035a622
+3	543	7230465749977067	CMakeFiles/Jueves_30.dir/Tiny_Lisp.cpp.obj	79d4b3801a7c90aa
+14	531	7230465749915604	CMakeFiles/Jueves_30.dir/VersionANSI.cpp.obj	cb5252d863aab689
+1	171	7230465800262915	build.ninja	c280c4acace493a7
+4	154	7230465802029229	Jueves_30.exe	1dfa0c857ba2dbf1
+3	432	7230466262740301	CMakeFiles/Jueves_30.dir/VersionANSI.cpp.obj	cb5252d863aab689
+432	572	7230466264105750	Jueves_30.exe	1dfa0c857ba2dbf1
+4	417	7230466857322272	CMakeFiles/Jueves_30.dir/VersionANSI.cpp.obj	cb5252d863aab689
+418	539	7230466858494302	Jueves_30.exe	1dfa0c857ba2dbf1

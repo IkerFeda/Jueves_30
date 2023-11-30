@@ -19,19 +19,13 @@ struct ConsoleBox
 
 void load_script(const string& filename, bool show_script = false)
 {
-    string script;
     ifstream file(filename, ios::binary);
     if (!file)
     {
         throw runtime_error("Error de apertura de " + filename);
     }
 
-    char buf[4001];
-    while (file.read(buf, 4000))
-    {
-        buf[file.gcount()] = '\0';
-        script.append(buf);
-    }
+    string script((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
     file.close();
 
     if (show_script)
@@ -39,13 +33,15 @@ void load_script(const string& filename, bool show_script = false)
         cout << ColorConsole::fg_blue << ColorConsole::bg_white;
         cout << script << endl;
     }
-
-    ConsoleBox consoleBox;
-    consoleBox.new_text();
-    consoleBox.set_text(script);
 }
 
-int main() {
+void load_script(const char* filename, bool show_script = false)
+{
+    load_script(string(filename), show_script);
+}
+
+void load_script()
+{
     string filename;
     cout << "Archivo: ";
     cin >> filename;
@@ -59,6 +55,10 @@ int main() {
     } catch (...) {
         cerr << "Error desconocido" << endl;
     }
+}
+
+int main() {
+    load_script();
 
     return 0;
 }
