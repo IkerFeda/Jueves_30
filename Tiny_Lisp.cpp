@@ -17,7 +17,6 @@ struct ConsoleBox
     void set_text(const string &text) { cout << text << endl; }
 };
 
-// Función para eliminar códigos de escape ANSI del texto
 string removeANSIEscapeCodes(const string& input)
 {
     string output;
@@ -30,7 +29,7 @@ string removeANSIEscapeCodes(const string& input)
             {
                 ++index;
             }
-            ++index; // avanzar después de 'm'
+            ++index;
         }
         else
         {
@@ -56,8 +55,8 @@ void load_script(const string& filename, bool show_script = false)
         ConsoleBox consoleBox;
         consoleBox.new_text();
 
-        string processed_script = removeANSIEscapeCodes(script); // Eliminar códigos de escape ANSI
-        consoleBox.set_text(processed_script); // Mostrar el texto procesado sin códigos de escape
+        string processed_script = removeANSIEscapeCodes(script);
+        consoleBox.set_text(processed_script);
     }
 }
 
