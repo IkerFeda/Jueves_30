@@ -26,11 +26,11 @@ string removeANSIEscapeCodes(const string& input)
     {
         if (input[index] == '\033' && input[index + 1] == '[')
         {
-            index += 2; // Ignorar el código de escape ANSI
-            while (index < input.size() && !isalpha(input[index]))
+            while (index < input.size() && input[index] != 'm')
             {
                 ++index;
             }
+            ++index; // avanzar después de 'm'
         }
         else
         {
@@ -42,26 +42,21 @@ string removeANSIEscapeCodes(const string& input)
 
 void load_script(const string& filename, bool show_script = false)
 {
-    string script;
     ifstream file(filename, ios::binary);
     if (!file)
     {
         throw runtime_error("Error de apertura de " + filename);
     }
 
-    char buf[4001];
-    while (file.read(buf, 4000))
-    {
-        buf[file.gcount()] = '\0';
-        script.append(buf);
-    }
+    string script((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
     file.close();
 
     if (show_script)
     {
-        string processed_script = removeANSIEscapeCodes(script); // Eliminar códigos de escape ANSI
         ConsoleBox consoleBox;
         consoleBox.new_text();
+
+        string processed_script = removeANSIEscapeCodes(script); // Eliminar códigos de escape ANSI
         consoleBox.set_text(processed_script); // Mostrar el texto procesado sin códigos de escape
     }
 }
