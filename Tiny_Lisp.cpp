@@ -17,6 +17,29 @@ struct ConsoleBox
     void set_text(const string &text) { cout << text << endl; }
 };
 
+// Función para eliminar códigos de escape ANSI del texto
+string removeANSIEscapeCodes(const string& input)
+{
+    string output;
+    size_t index = 0;
+    while (index < input.size())
+    {
+        if (input[index] == '\033' && input[index + 1] == '[')
+        {
+            index += 2; // Ignorar el código de escape ANSI
+            while (index < input.size() && !isalpha(input[index]))
+            {
+                ++index;
+            }
+        }
+        else
+        {
+            output += input[index++];
+        }
+    }
+    return output;
+}
+
 void load_script(const string& filename, bool show_script = false)
 {
     string script;
@@ -36,13 +59,11 @@ void load_script(const string& filename, bool show_script = false)
 
     if (show_script)
     {
-        cout << ColorConsole::fg_blue << ColorConsole::bg_white;
-        cout << script << endl;
+        string processed_script = removeANSIEscapeCodes(script); // Eliminar códigos de escape ANSI
+        ConsoleBox consoleBox;
+        consoleBox.new_text();
+        consoleBox.set_text(processed_script); // Mostrar el texto procesado sin códigos de escape
     }
-
-    ConsoleBox consoleBox;
-    consoleBox.new_text();
-    consoleBox.set_text(script);
 }
 
 int main() {
